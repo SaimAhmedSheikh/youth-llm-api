@@ -23,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-dox)^m&wuko9ni5)(b(fkw(1bvdtsb2hz4tv(v*0dcw2)saniy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+# CSRF_TRUSTED_ORIGINS = ["*"]
 
 # Application definition
 
@@ -77,12 +78,12 @@ WSGI_APPLICATION = 'youth.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'youth_llm',
-        'USER': 'postgres',
-        'PASSWORD': 'abcd1234',
-        'HOST': 'localhost',  
-        'PORT': '5432',           
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ["PGDATABASE"],
+        'USER': os.environ["PGUSER"],
+        'PASSWORD': os.environ["PGPASSWORD"],
+        'HOST': os.environ["PGHOST"],
+        'PORT': os.environ["PGPORT"],
     }
 }
 
