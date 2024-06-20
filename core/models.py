@@ -18,6 +18,7 @@ class Patient(models.Model):
     surname = models.CharField(max_length=100)
     forename = models.CharField(max_length=100)
     date_of_birth = models.CharField(max_length=50)
+    age = models.CharField(max_length=10, default='')
     sample_number = models.CharField(max_length=30)
     sex = models.CharField(max_length=30)
     lab_no = models.CharField(max_length=30)
